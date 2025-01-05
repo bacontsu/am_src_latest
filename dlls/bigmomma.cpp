@@ -260,7 +260,7 @@ public:
 	{ 
 		if ( m_crabTime < gpGlobals->time && m_crabCount < BIG_MAXCHILDREN )
 		{
-			// Don't spawn crabs inside each other
+			// Don't spawn crfabs inside each other
 			Vector mins = pev->origin - Vector( 32, 32, 0 );
 			Vector maxs = pev->origin + Vector( 32, 32, 0 );
 

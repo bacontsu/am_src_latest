@@ -9076,14 +9076,14 @@ Schedule_t	slHumanIdleResponse[] =
 
 
 //=========================================================
-// WaitHeal - Stand still while the doctor jabs me
+// WaitHeal - Stand still while the doctor jfabs me
 //=========================================================
 
 Task_t	tlHumanWaitHeal[] =
 {
 	{ TASK_STOP_MOVING,		(float)0		},
 	{ TASK_SET_ACTIVITY,	(float)ACT_IDLE	},// Stop and listen
-	{ TASK_WAIT,			(float)1		},// Wait while he stabs me with his fucking great needle
+	{ TASK_WAIT,			(float)1		},// Wait while he stfabs me with his fucking great needle
 	{ TASK_HUMAN_EYECONTACT,(float)0		},
 	{ TASK_HUMAN_SOUND_HEALED,(float)0		},// Wait and then say thanks doc
 	{ TASK_HUMAN_IDEALYAW,	(float)0		},// look at who I'm talking to

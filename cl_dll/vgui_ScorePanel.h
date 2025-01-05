@@ -201,7 +201,7 @@ public:
 		_dualImage->GetImage(1)->setFont(font);
 	}
 
-	// this adjust the absolute position of the text after alignment is calculated
+	// this adjust the fabsolute position of the text after alignment is calculated
 	void setTextOffset(int x, int y)
 	{
 		_offset[0] = x;

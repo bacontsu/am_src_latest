@@ -1224,6 +1224,7 @@ void CreateEmptyDepth(int width, int height, unsigned int &Tex, bool clamped)
 	Tex = current_ext_texture_id;
 	current_ext_texture_id++;
 }
+
 vec3_t getTextureColor(char *name)
 {
 	if (!name)

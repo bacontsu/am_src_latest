@@ -2328,7 +2328,7 @@ public:
 		UTIL_SetSize(pev, g_vecZero, g_vecZero);
 
 		int cubeNum = pev->origin.x + pev->origin.y + pev->origin.z;
-		cubeNum = abs(cubeNum);
+		cubeNum = fabs(cubeNum);
 
 		ALERT(at_console, "CCubicMaps Spawn\n");
 
@@ -2339,7 +2339,7 @@ public:
 		CPointEntity::KeyValue(pkvd);
 
 		int cubeNum = pev->origin.x + pev->origin.y + pev->origin.z;
-		cubeNum = abs(cubeNum);
+		cubeNum = fabs(cubeNum);
 		pev->sequence = cubeNum;
 	}
 };
@@ -2865,7 +2865,7 @@ void CEnvModel::Die(void)
 	// The more negative pev->health, the louder
 	// the sound should be.
 
-	fvol = RANDOM_FLOAT(0.85, 1.0) + (abs(pev->health) / 100.0);
+	fvol = RANDOM_FLOAT(0.85, 1.0) + (fabs(pev->health) / 100.0);
 
 	if (fvol > 1.0)
 		fvol = 1.0;

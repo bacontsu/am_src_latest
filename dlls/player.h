@@ -313,7 +313,7 @@ public:
 	float m_flStartCharge;
 	float m_flAmmoStartCharge;
 	float m_flPlayAftershock;
-	float m_flNextAmmoBurn;// while charging, when to absorb another unit of player's ammo?
+	float m_flNextAmmoBurn;// while charging, when to fabsorb another unit of player's ammo?
 	void ResetPunch();
 	void ViewPunch(float p, float y, float r);
 	//Player ID

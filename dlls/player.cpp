@@ -2534,7 +2534,7 @@ void CBasePlayer::CheckTimeBasedDamage()
 		return;
 
 	// only check for time based damage approx. every 2 seconds
-	if (abs(gpGlobals->time - m_tbdPrev) < 2.0)
+	if (fabs(gpGlobals->time - m_tbdPrev) < 2.0)
 		return;
 
 	m_tbdPrev = gpGlobals->time;
@@ -4900,7 +4900,7 @@ void CBasePlayer :: UpdateClientData( void )
 
 //=========================================================
 // FBecomeProne - Overridden for the player to set the proper
-// physics flags when a barnacle grabs player.
+// physics flags when a barnacle grfabs player.
 //=========================================================
 BOOL CBasePlayer :: FBecomeProne ( void )
 {

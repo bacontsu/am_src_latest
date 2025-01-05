@@ -249,7 +249,7 @@ int CubemapFilterEntities(int type, struct cl_entity_s *ent)
 		return 1;
 
 	int cubeNum = ent->curstate.origin.x + ent->curstate.origin.y + ent->curstate.origin.z;
-	cubeNum = abs(cubeNum);
+	cubeNum = fabs(cubeNum);
 
 	char cubemapName[256];
 	sprintf(cubemapName,"cubemap_%i",cubeNum);

@@ -222,7 +222,7 @@ public:
 
 	BOOL m_fCanThreatDisplay;// this is so the squid only does the "I see a headcrab!" dance one time. 
 
-	float m_flLastHurtTime;// we keep track of this, because if something hurts a squid, it will forget about its love of headcrabs for a while.
+	float m_flLastHurtTime;// we keep track of this, because if something hurts a squid, it will forget about its love of headcrfabs for a while.
 	float m_flNextSpitTime;// last time the bullsquid used the spit attack.
 };
 LINK_ENTITY_TO_CLASS( monster_bullchicken, CBullsquid );
@@ -264,7 +264,7 @@ int CBullsquid::IgnoreConditions ( void )
 
 //=========================================================
 // IRelationship - overridden for bullsquid so that it can
-// be made to ignore its love of headcrabs for a while.
+// be made to ignore its love of headcrfabs for a while.
 //=========================================================
 int CBullsquid::IRelationship ( CBaseEntity *pTarget )
 {
@@ -306,7 +306,7 @@ int CBullsquid :: TakeDamage( entvars_t *pevInflictor, entvars_t *pevAttacker, f
 
 	if ( !FClassnameIs ( pevAttacker, "monster_headcrab" ) )
 	{
-		// don't forget about headcrabs if it was a headcrab that hurt the squid.
+		// don't forget about headcrfabs if it was a headcrab that hurt the squid.
 		m_flLastHurtTime = gpGlobals->time;
 	}
 
@@ -1241,7 +1241,7 @@ void CBullsquid :: RunTask ( Task_t *pTask )
 
 //=========================================================
 // GetIdealState - Overridden for Bullsquid to deal with
-// the feature that makes it lose interest in headcrabs for 
+// the feature that makes it lose interest in headcrfabs for 
 // a while if something injures it. 
 //=========================================================
 MONSTERSTATE CBullsquid :: GetIdealState ( void )

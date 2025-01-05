@@ -933,23 +933,24 @@ void CHud :: VidInit( void )
 
 	GetClientVoiceMgr()->VidInit();
 
-	gGlow.ResetGlow();
 	gGlow.InitGlow();
-	gBlur.ResetBlur();
 	gBlur.InitBlur();
-	gFog.ResetFog();
 	gFog.InitFog();
 	gLensFlares.InitLensFlares();
-
-	gColorCorrection.ResetColorCorrection();
 	gColorCorrection.InitColorCorrection();
 	gSSAO.InitSSAO();
+	gRaindrops.InitRain();
+	gWater.InitWater();
+
+	//gGlow.ResetGlow();
+	//gBlur.ResetBlur();
+	//gFog.ResetFog();
+
+	gColorCorrection.ResetColorCorrection();
 
 	gRaindrops.ResetRain();
-	gRaindrops.InitRain();
 
 	gParticleEngine.VidInit();
-	gWater.InitWater();
 
 	m_Tbutton.VidInit();
 

@@ -42,7 +42,7 @@ static DLL_FUNCTIONS gFunctionTable =
 	DispatchKeyValue,			//pfnKeyValue
 	DispatchSave,				//pfnSave
 	DispatchRestore,			//pfnRestore
-	DispatchObjectCollsionBox,	//pfnAbsBox
+	DispatchObjectCollsionBox,	//pfnfabsBox
 
 	SaveWriteFields,			//pfnSaveWriteFields
 	SaveReadFields,				//pfnSaveReadFields

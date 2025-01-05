@@ -731,7 +731,7 @@ Simulation and cleanup of temporary entities
 */
 void DLLEXPORT HUD_TempEntUpdate (
 	double frametime,   // Simulation time
-	double client_time, // Absolute time on client
+	double client_time, // fabsolute time on client
 	double cl_gravity,  // True gravity on client
 	TEMPENTITY **ppTempEntFree,   // List of freed temporary ents
 	TEMPENTITY **ppTempEntActive, // List

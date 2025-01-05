@@ -867,7 +867,7 @@ void CParticleEngine::UpdateSystems(void)
 		if (next->maxparticlevar)
 		{
 			// Calculate variation
-			int iNewAmount = iNumSpawn + abs((sin(flTime) / 2.4492)*next->maxparticlevar);
+			int iNewAmount = iNumSpawn + fabs((sin(flTime) / 2.4492)*next->maxparticlevar);
 
 			// Create new particles
 			for (int j = 0; j < iNewAmount; j++)
