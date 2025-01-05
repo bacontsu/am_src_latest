@@ -1,2 +1,3 @@
 *.bak
 *.opensdf
+/projects/vs2010/.vs
