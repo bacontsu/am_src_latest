@@ -1333,8 +1333,6 @@ void RendererDrawNormal()
 
 		DrawBump();
 		MY_DecayLights();
-		// Update particles
-		gParticleEngine.Update();
 
 		if (gl.IsGLAllowed())
 		{

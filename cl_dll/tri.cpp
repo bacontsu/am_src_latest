@@ -560,6 +560,9 @@ void DLLEXPORT HUD_DrawTransparentTriangles( void )
 
 	gl.RestoreStates();
 
+	// Update particles
+	gParticleEngine.Update();
+
 	// Render particles
 	gParticleEngine.DrawSpecialParticles();
 	gParticleEngine.DrawParticles();
