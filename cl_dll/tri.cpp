@@ -99,9 +99,6 @@ void DLLEXPORT HUD_DrawNormalTriangles( void )
 
 	RendererDrawNormal(); 
 
-	// Render particles
-	gParticleEngine.DrawSpecialParticles();
-	gParticleEngine.DrawParticles();
 
 	gWater.CaptureScreen();
 	gWater.DrawWater();
@@ -528,15 +525,47 @@ void DrawGlows(); // p_render
 
 void DLLEXPORT HUD_DrawTransparentTriangles( void )
 {
+	float proj[16];
+	float model[16];
 	// p_render
 	RendererDrawTransparent();
+
 	gRopeRender.DrawRopes(1);
+
+	gl.SaveStates();
+	// enable some OpenGL stuff
+	glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
+	glEnable(GL_BLEND);
+
+	glColor3f(1, 1, 1);
+	glDisable(GL_DEPTH_TEST);
+	glMatrixMode(GL_MODELVIEW);
+	glPushMatrix();
+	glLoadIdentity();
+	glMatrixMode(GL_PROJECTION);
+	glPushMatrix();
+	glLoadIdentity();
+	gl.glOrtho(0, ScreenWidth, ScreenHeight, 0, -99999, 99999);
+
+	gSSAO.DrawEffect();
+	glViewport(0, 0, ScreenWidth, ScreenHeight);
+	glMatrixMode(GL_PROJECTION);
+	glPopMatrix();
+	glMatrixMode(GL_MODELVIEW);
+	glPopMatrix();
+	glDisable(GL_TEXTURE_RECTANGLE_NV);
+	glEnable(GL_DEPTH_TEST);
+	glDisable(GL_BLEND);
+	glEnable(GL_TEXTURE_2D);
+
+	gl.RestoreStates();
+
+	// Render particles
+	gParticleEngine.DrawSpecialParticles();
+	gParticleEngine.DrawParticles();
 
 	DrawGlows();
 	// p_render
-
-	float proj[16];
-	float model[16];
 
 	// Shepard : SoHL rain
 	ProcessFXObjects();
@@ -574,8 +603,6 @@ void DLLEXPORT HUD_DrawTransparentTriangles( void )
 
 	if (gGui)
 		gGui->draw(gEngfuncs.GetClientTime());
-
-	gSSAO.DrawEffect();
  
 	gLensFlares.DrawEffect();
 //	gColorCorrection.DrawEffect();
