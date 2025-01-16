@@ -141,6 +141,7 @@ float	anglemod(float a);
 float RemapVal(float val, float A, float B, float C, float D);
 
 
+
 #define BOX_ON_PLANE_SIDE(emins, emaxs, p)	\
 	(((p)->type < 3)?						\
 	(										\

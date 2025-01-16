@@ -2,7 +2,6 @@
 // written by BUzer for HL: Paranoia modification
 //
 //		2006
-
 #include "hud.h"
 #include "cl_util.h"
 #include "const.h"
@@ -32,6 +31,7 @@
 
 #include "pm_defs.h"
 #include "pmtrace.h"
+
 
 extern engine_studio_api_t IEngineStudio;
 #define CONPRINT gEngfuncs.Con_Printf
@@ -701,7 +701,14 @@ void CStudioModelRenderer::GL_DrawPoints()
 
 	Vector light = lightinfo.ambientlight;
 	Vector lightdir = lightinfo.lightdir;
-	Vector addlight = lightinfo.addlight;
+	//Vector addlight = lightinfo.addlight;
+
+	for (int i = 0; i < 3; i++)
+	{
+		m_pCurrentEntity->baseline.vuser4[i] = lerp(m_pCurrentEntity->baseline.vuser4[i], lightinfo.addlight[i], gHUD.m_flTimeDelta * 0.5f);
+	}
+
+	Vector addlight = m_pCurrentEntity->baseline.vuser4;
 
 	for (int i = 0; i < 3; i++)
 	{

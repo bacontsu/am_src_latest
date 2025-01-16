@@ -692,4 +692,25 @@ extern int g_iUser1;
 extern int g_iUser2;
 extern int g_iUser3;
 
+#define V_min(a,b)  (((a) < (b)) ? (a) : (b))
+#define V_max(a,b)  (((a) > (b)) ? (a) : (b))
+
+#define clamp( val, min, max ) ( ((val) > (max)) ? (max) : ( ((val) < (min)) ? (min) : (val) ) )
+
+inline float lerp(float start, float end, float frac)
+{
+	// Exact, monotonic, bounded, determinate, and (for a=b=0) consistent:
+	if (start <= 0 && end >= 0 || start >= 0 && end <= 0)
+		return frac * end + (1 - frac) * start;
+
+	if (frac == 1)
+		return end; // exact
+	// Exact at t=0, monotonic except near t=1,
+	// bounded, determinate, and consistent:
+	const float x = start + frac * (end - start);
+	return frac > 1 == end > start ? V_max(end, x) : V_min(end, x); // monotonic near t=1
+}
+
+
+
 #include "fileLoader.h"
